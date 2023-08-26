@@ -8,13 +8,13 @@ import {
   NameIcon,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/operations';
 import { toast } from 'react-hot-toast';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -23,8 +23,8 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
     }
@@ -35,7 +35,7 @@ export const ContactForm = () => {
 
     const newContact = {
       name,
-      phone,
+      number,
     };
 
     const isExist = contacts.some(
@@ -53,7 +53,7 @@ export const ContactForm = () => {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -76,14 +76,14 @@ export const ContactForm = () => {
           />
         </Label>
 
-        <Label htmlFor="phone-input">
+        <Label htmlFor="number-input">
           <NumberIcon sx={{ mr: 1, my: 0.5 }} />
           <Input
             type="tel"
-            id="phone-input"
-            name="phone"
+            id="number-input"
+            name="number"
             label="Number"
-            value={phone}
+            value={number}
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required

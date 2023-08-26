@@ -1,6 +1,6 @@
 import { Li, Ul, Button, DeleteIcon, Name, Phone } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectVisibleContact } from 'redux/selectors';
+import { selectVisibleContact } from 'redux/filter/selectors';
 import { deleteContact } from 'redux/operations';
 
 export const ContactList = () => {
@@ -9,11 +9,11 @@ export const ContactList = () => {
 
   return (
     <Ul>
-      {contacts.map(({ name, phone, id }) => (
+      {contacts.map(({ name, number, id }) => (
         <Li key={id}>
           <div>
             <Name>{name}</Name>
-            <Phone>{phone}</Phone>
+            <Phone>{number}</Phone>
           </div>
           {
             <Button

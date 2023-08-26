@@ -14,14 +14,6 @@ export const Flex = styled.div`
   padding: 25px 40px;
 `;
 
-export const SubTitle = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 40px;
-  line-height: 1.5;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
 export const EmptyContact = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 24px;

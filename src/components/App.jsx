@@ -1,43 +1,41 @@
-import { Header, Filter, ContactForm, ContactList, Loader } from 'components';
-import { EmptyContact, Flex } from './App.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
-import { Toaster } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
-import { Container } from '@mui/material';
+import { currentUser } from 'redux/operations';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+import { PrivateRoute, PublicRoute } from 'routes';
+import { Login, Register } from 'pages';
+import ContactsPage from 'pages/Contacts/Contacts';
+import Home from 'pages/Home/Home';
+import ErrorPage from './Error/Error';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(currentUser());
   }, [dispatch]);
 
   return (
-    <>
-      <Toaster />
-      <Header />
-      <Container>
-        {isLoading && <Loader />}
-        {error && <p>{error}</p>}
-        <Flex>
-          <ContactForm />
-          <div>
-            {contacts.length > 0 ? (
-              <Filter />
-            ) : (
-              <EmptyContact>
-                Your phonebook is empty. Add first contact!
-              </EmptyContact>
-            )}
-            {contacts.length > 0 && <ContactList />}
-          </div>
-        </Flex>
-      </Container>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="/register"
+          element={<PublicRoute redirectTo="/login" component={<Register />} />}
+        />
+        <Route
+          path="/login"
+          element={<PublicRoute redirectTo="/contacts" component={<Login />} />}
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 };
