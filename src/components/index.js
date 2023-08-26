@@ -2,7 +2,6 @@ export * from './AppBar/AppBar';
 export * from './AuthNav/AuthNav';
 export * from './ContactForm/ContactForm';
 export * from './ContactList/ContactList';
-export * from './Error/Error';
 export * from './Filter/Filter';
 export * from './Layout/Layout';
 export * from './Loader/Loader';

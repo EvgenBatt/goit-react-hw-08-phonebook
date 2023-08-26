@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 import { Section } from 'styles';
 import { Text, TextWrap } from './Error.styled';
 
-const ErrorPage = () => {
+const Error = () => {
   return (
     <>
       <Section>
@@ -16,4 +16,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default Error;

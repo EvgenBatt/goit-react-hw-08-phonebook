@@ -4,7 +4,7 @@ import { selectContacts } from 'redux/contacts/selectors';
 import { EmptyContact, Flex } from './Contacts.styled';
 import { ContactForm, ContactList, Filter } from 'components';
 
-const ContactsPage = () => {
+const Contacts = () => {
   const contacts = useSelector(selectContacts);
 
   return (
@@ -27,4 +27,4 @@ const ContactsPage = () => {
   );
 };
 
-export default ContactsPage;
+export default Contacts;

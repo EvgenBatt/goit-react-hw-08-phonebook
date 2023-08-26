@@ -6,10 +6,10 @@ import { Layout } from './Layout/Layout';
 import { PrivateRoute, PublicRoute } from 'routes';
 
 const Home = lazy(() => import('pages/Home/Home'));
-const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Login = lazy(() => import('pages/Login/Login'));
 const Register = lazy(() => import('pages/Register/Register'));
-const ErrorPage = lazy(() => import('pages/Error/Error'));
+const Error = lazy(() => import('pages/Error/Error'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -33,10 +33,10 @@ export const App = () => {
         <Route
           path="/contacts"
           element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
           }
         />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<Error />} />
       </Route>
     </Routes>
   );
