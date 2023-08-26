@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { lazy, useEffect } from 'react';
-import { currentUser } from 'redux/operations';
+import { refreshUser } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { PrivateRoute, PublicRoute } from 'routes';
@@ -15,7 +15,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(currentUser());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (

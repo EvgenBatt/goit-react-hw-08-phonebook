@@ -9,16 +9,37 @@ import {
   Label,
   Title,
 } from './RegisterForm.styled';
+import { useState } from 'react';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       signUp({
-        name: values.name,
-        email: values.email,
-        password: values.password,
+        name,
+        email,
+        password,
       })
     );
     resetForm();
@@ -27,13 +48,12 @@ export const RegisterForm = () => {
   return (
     <Flex>
       <Title>Sign Up</Title>
-      <Formik
-        initialValues={{ name: '', email: '', password: '' }}
-        onSubmit={handleSubmit}
-      >
+      <Formik onSubmit={handleSubmit} initialValues={{ name, email, password }}>
         <FormStyled autoComplete="off">
           <Label htmlFor="name-input">
             <Input
+              value={name}
+              onChange={handleChange}
               required
               type="text"
               name="name"
@@ -46,6 +66,8 @@ export const RegisterForm = () => {
           </Label>
           <Label htmlFor="email-input">
             <Input
+              value={email}
+              onChange={handleChange}
               required
               type="email"
               name="email"
@@ -60,6 +82,8 @@ export const RegisterForm = () => {
           </Label>
           <Label htmlFor="password-input">
             <Input
+              value={password}
+              onChange={handleChange}
               required
               label="Password"
               id="password-input"

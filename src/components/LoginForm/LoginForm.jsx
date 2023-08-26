@@ -10,12 +10,29 @@ import {
   Label,
   Title,
 } from './LoginForm.styled';
+import { useState } from 'react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(logIn({ email: values.email, password: values.password }))
+    dispatch(logIn({ email, password }))
       .then(() => {
         toast.success('Login successful');
         resetForm();
@@ -28,13 +45,12 @@ export const LoginForm = () => {
   return (
     <Flex>
       <Title>Log In</Title>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        onSubmit={handleSubmit}
-      >
+      <Formik initialValues={{ email, password }} onSubmit={handleSubmit}>
         <FormStyled autoComplete="off">
           <Label htmlFor="email-input">
             <Input
+              value={email}
+              onChange={handleChange}
               required
               type="email"
               name="email"
@@ -49,6 +65,8 @@ export const LoginForm = () => {
           </Label>
           <Label>
             <Input
+              value={password}
+              onChange={handleChange}
               required
               label="Password"
               id="password-input"
