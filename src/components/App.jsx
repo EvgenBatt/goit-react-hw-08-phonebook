@@ -1,13 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { currentUser } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { PrivateRoute, PublicRoute } from 'routes';
-import { Login, Register } from 'pages';
-import ContactsPage from 'pages/Contacts/Contacts';
-import Home from 'pages/Home/Home';
-import ErrorPage from './Error/Error';
+
+const Home = lazy(() => import('pages/Home/Home'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Register = lazy(() => import('pages/Register/Register'));
+const ErrorPage = lazy(() => import('pages/Error/Error'));
 
 export const App = () => {
   const dispatch = useDispatch();
