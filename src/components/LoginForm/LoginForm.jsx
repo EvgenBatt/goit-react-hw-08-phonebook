@@ -32,14 +32,9 @@ export const LoginForm = () => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(logIn({ email, password }))
-      .then(() => {
-        toast.success('Login successful');
-        resetForm();
-      })
-      .catch(() => {
-        toast.error('Invalid username or password');
-      });
+    dispatch(logIn({ email, password }));
+
+    resetForm();
   };
 
   return (
