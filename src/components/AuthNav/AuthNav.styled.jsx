@@ -29,7 +29,7 @@ export const NavLinkStyled = styled(NavLink)`
     padding: 6px 12px;
     border-radius: 4px;
 
-    transform: scale(1);
+    transform: scale(0.9);
     pointer-events: none;
   }
 `;

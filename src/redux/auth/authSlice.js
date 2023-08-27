@@ -70,7 +70,11 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.isLoading = false;
       })
-      .addCase(refreshUser.rejected, handleRejected);
+      .addCase(refreshUser.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isRefreshing = false;
+        state.error = payload;
+      });
   },
 });
 

@@ -89,6 +89,7 @@ export const RegisterForm = () => {
               id="password-input"
               type="password"
               name="password"
+              title="Password must be minimum 8 characters long"
               variant="outlined"
               color="primary"
               size="small"
