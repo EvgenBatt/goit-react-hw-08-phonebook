@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Flex = styled.div`
   width: fit-content;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;

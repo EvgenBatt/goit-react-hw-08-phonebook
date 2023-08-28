@@ -1,5 +1,4 @@
-import { Container } from '@mui/material';
-import { Section } from 'styles';
+import { Container, Section } from 'styles';
 import { Text, TextWrap } from './Error.styled';
 
 const Error = () => {

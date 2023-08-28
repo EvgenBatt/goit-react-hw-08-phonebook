@@ -1,2 +1,3 @@
-export * from './Common.styled';
+export * from './Common';
 export * from './theme';
+export * from './GlobalStyles'

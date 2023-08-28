@@ -1,7 +1,6 @@
-import { Container } from '@mui/material';
 import { RegisterForm } from 'components';
 import { Toaster } from 'react-hot-toast';
-import { Section } from 'styles';
+import { Container, Section } from 'styles';
 
 export const Register = () => {
   return (

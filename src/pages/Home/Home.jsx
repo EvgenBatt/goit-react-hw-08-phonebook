@@ -1,11 +1,9 @@
-import { Section } from 'styles';
-import { Container } from '@mui/material';
+import { Container, Section } from 'styles';
 import { LinkStyled, Text, TextWrap, Title } from './Home.styled';
 import { Toaster } from 'react-hot-toast';
 
 const Home = () => {
   return (
-    <>
       <main>
         <Toaster />
         <Section>
@@ -21,7 +19,6 @@ const Home = () => {
           </Container>
         </Section>
       </main>
-    </>
   );
 };
 
