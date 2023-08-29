@@ -8,7 +8,7 @@ export const Wrap = styled.div`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 500;
   color: #e7e7e7;
   transition-property: color, background-color, transform;
@@ -26,7 +26,7 @@ export const NavLinkStyled = styled(NavLink)`
     color: #ff3842;
     background-color: #ffffffe3;
 
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 4px;
 
     transform: scale(0.9);

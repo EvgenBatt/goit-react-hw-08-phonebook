@@ -29,18 +29,7 @@ export const Button = styled.button`
   &:focus {
     color: #ff3842;
     font-weight: 600;
-    padding: 6px 9px;
-    background-color: #e7e7e7;
-  }
-
-  &.active {
-    color: #ff3842;
-    background-color: #ffffffe3;
-
     padding: 6px 12px;
-    border-radius: 4px;
-
-    transform: scale(0.9);
-    pointer-events: none;
+    background-color: #e7e7e7;
   }
 `;

@@ -16,6 +16,6 @@ export const Flex = styled.div`
 
 export const EmptyContact = styled.p`
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5;
 `;
