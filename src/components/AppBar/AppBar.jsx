@@ -1,14 +1,19 @@
 import { AuthNav, Navigation, UserMenu } from 'components';
 import { useAuth } from 'hooks/useAuth';
-import { Flex } from './AppBar.styled';
+import { Header, Nav } from './AppBar.styled';
+import { Container } from 'styles';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <Flex>
-      <Navigation />
-      <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
-    </Flex>
+    <Header>
+      <Container>
+        <Nav>
+          <Navigation />
+          <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
+        </Nav>
+      </Container>
+    </Header>
   );
 };

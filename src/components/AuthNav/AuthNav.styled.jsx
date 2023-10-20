@@ -1,11 +1,28 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Wrap = styled.div`
+export const Ul = styled.ul`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media screen and (max-width: 767px) {
+    flex-flow: column nowrap;
+    background-color: #303c88;
+    position: fixed;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+    top: 78px;
+    right: 0;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    transition: transform 300ms ease-in-out;
+    z-index: 2;
+    border-top: 1px solid #26306e;
+  }
 `;
+
+export const Li = styled.li``;
 
 export const NavLinkStyled = styled(NavLink)`
   font-size: 19px;
